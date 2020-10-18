@@ -63,15 +63,12 @@ void ATankGameModeBase::HandleGameStart()
 
 void ATankGameModeBase::HandleGameOver(bool PlayerWon) 
 {
-    // See if the player has destroyed all the turrets, show win result.
-    // else if turret destroye playter, show lose results.
-    // Call blueprint version GameOver(bool);
     GameOver(PlayerWon);
 }
 
 int32 ATankGameModeBase::GetTargetTurretCount() 
 {
     TArray<AActor*> TurretActors; 
-    //UGameplayStatics::GetAllActorsOfClass(GetWorld(), APawnTurret::StaticsClass(), TurretActors);
+    UGameplayStatics::GetAllActorsOfClass(GetWorld(), APawnTurret::StaticClass(), TurretActors);
     return TurretActors.Num();
 }
